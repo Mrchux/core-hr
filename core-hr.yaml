@@ -23,6 +23,7 @@ tags:
 x-tagGroups:
   - name: Employees
     tags:
+      - Employees
       - Get Employees
       - Get Employee
       - Create Employees
