@@ -20,11 +20,11 @@ x-tagGroups:
       - Get Employees
   
 paths:
-  /v1/tunnels:
+  /v1/employees:
     get:
       tags:
-        - Tunnels
-      summary: List All Tunnels
+        - Employees
+      summary: List All Employees
       responses:
         "200":
           description: Successful Response
@@ -33,7 +33,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Tunnel"
+                  $ref: "#/components/schemas/Employee"
               examples:
                 response:
                   value:
@@ -45,20 +45,19 @@ paths:
                       host: tunnelx.webrelay.io
     post:
       tags:
-        - Tunnels
-      description: You may create your own tunnel using this action. It takes a JSON object
-        containing a tunnel request with a specified destination. Paid plans
-        have an option to specify either encryption, subdomain or full domain.
-      summary: Create a New Tunnel
+        - Employees
+      description: You may create your own employee using this action. It takes a JSON object
+        containing a employee request with a specified destination. 
+      summary: Create a New Employee
       requestBody:
-        $ref: "#/components/requestBodies/Tunnel"
+        $ref: "#/components/requestBodies/Employee"
       responses:
         "201":
           description: ""
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Tunnel"
+                $ref: "#/components/schemas/Employee"
               examples:
                 response:
                   value:
@@ -75,17 +74,17 @@ paths:
         "400":
           description: Invalid tunnel request supplied
     summary: List and create tunnels
-  "/v1/tunnels/{tunnelID}":
+  "/v1/employees/{employeeID}":
     parameters:
-      - name: tunnelID
+      - name: Employees
         in: path
-        description: ID of tunnel to return
+        description: ID of employee to return
         required: true
         schema:
           type: string
     get:
       tags:
-        - Tunnels
+        - employeeID
       summary: Get Tunnel Details
       responses:
         "200":
@@ -93,7 +92,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Tunnel"
+                $ref: "#/components/schemas/Employee"
               examples:
                 response:
                   value:
@@ -119,11 +118,11 @@ paths:
                     ingress_rules: null
                     crypto: off
         "404":
-          description: Tunnel not found
+          description: Employee not found
     put:
       tags:
-        - Tunnels
-      summary: Update Tunnel Details
+        - Employees
+      summary: Update Employee Details
       requestBody:
         $ref: "#/components/requestBodies/Tunnel"
       responses:
@@ -132,7 +131,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Tunnel"
+                $ref: "#/components/schemas/Employee"
               examples:
                 response:
                   value:
@@ -160,15 +159,15 @@ paths:
         "400":
           description: Bad request (check response message)
         "404":
-          description: Tunnel not found
+          description: Employee not found
     delete:
       tags:
-        - Tunnels
-      summary: Delete Tunnel
+        - Employees
+      summary: Delete Employee
       responses:
         "200":
           description: Successful Response
         "404":
-          description: Tunnel not found
-    summary: Get, update and delete tunnels
+          description: Employee not found
+    summary: Get, update and delete employees
   
