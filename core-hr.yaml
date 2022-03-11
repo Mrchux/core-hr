@@ -13,17 +13,25 @@ info:
 tags:
   - name: Employees
     description: A collection of endpoints for employee
+  - name: Get Employees
+    description: Get a list of employees records
+  - name: Get Employee
+    description: Get an employee record
+  - name: Create Employee
+    description: Add an employee record
  
 x-tagGroups:
   - name: Employees
     tags:
       - Get Employees
+      - Get Employee
+      - Create Employees
   
 paths:
   /v1/employees:
     get:
       tags:
-        - Employees
+        - Get Employees
       summary: List All Employees
       responses:
         "200":
@@ -76,7 +84,7 @@ paths:
     summary: List and create tunnels
   "/v1/employees/{employeeID}":
     parameters:
-      - name: Employees
+      - name: Get Employee
         in: path
         description: ID of employee to return
         required: true
