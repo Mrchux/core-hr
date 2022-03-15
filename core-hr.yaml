@@ -11,8 +11,6 @@ info:
 
  
 tags:
-  - name: Employees
-    description: A collection of endpoints for employee
   - name: Get Employees
     description: Get a list of employees records
   - name: Get Employee
@@ -23,7 +21,6 @@ tags:
 x-tagGroups:
   - name: Employees
     tags:
-      - Employees
       - Get Employees
       - Get Employee
       - Create Employees
@@ -47,14 +44,21 @@ paths:
                 response:
                   value:
                     - id: b3237483-e96e-4f3a-905c-0d9603d66c1f
+                      employee_code: 842HSKD
+                      username: example
+                      email: example@seamlesshr.com
                       created_at: 1534409264
                       updated_at: 1534409264
-                      name: tunnel-x
-                      destination: http://localhost:4000
-                      host: tunnelx.webrelay.io
+                    - id: b3237483-e96e-4f3a-905c-0d9603d66c1f
+                      employee_code: 842HSKD
+                      username: example
+                      email: example@seamlesshr.com
+                      created_at: 1534409264
+                      updated_at: 1534409264
+                      
     post:
       tags:
-        - Employees
+        - Get Employees
       description: You may create your own employee using this action. It takes a JSON object
         containing a employee request with a specified destination. 
       summary: Create a New Employee
